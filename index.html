@@ -1,90 +1,213 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SK Emran Hossain</title>
+<meta name="description" content="SK EMRAN HOSSAIN — Texture-based Digital Illustration and Decorative Art Gallery.">
+<meta name="theme-color" content="#17130f">
+<title>SK EMRAN HOSSAIN | Digital Art Gallery</title>
 
 <style>
-* {
-  box-sizing: border-box;
+:root{
+  --bg:#17130f;
+  --soft:#211a14;
+  --card:#281f17;
+  --text:#eee2ca;
+  --muted:#b8a88d;
+  --gold:#c79a52;
+  --gold2:#e1c27e;
+  --line:rgba(225,194,126,.22);
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Georgia,"Times New Roman",serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 15% 10%,rgba(199,154,82,.09),transparent 28%),
+    radial-gradient(circle at 85% 70%,rgba(199,154,82,.06),transparent 28%),
+    var(--bg);
+  line-height:1.65;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.045;
+  background-image:repeating-linear-gradient(0deg,#fff 0 1px,transparent 1px 4px),
+                   repeating-linear-gradient(90deg,#fff 0 1px,transparent 1px 5px);
+  mix-blend-mode:screen;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%}
+.container{width:min(var(--max),92%);margin:auto}
+
+/* NAV */
+header{
+  position:sticky;top:0;z-index:40;
+  background:rgba(23,19,15,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:bold;letter-spacing:.18em;color:var(--gold2)}
+.nav-links{display:flex;gap:25px;list-style:none;font-size:.9rem}
+.nav-links a{color:var(--muted);transition:.2s}
+.nav-links a:hover{color:var(--gold2)}
+.menu{display:none;background:none;border:1px solid var(--line);color:var(--gold2);padding:7px 10px;border-radius:8px}
+
+/* HERO */
+.hero{
+  min-height:88vh;padding:85px 0;
+  display:grid;grid-template-columns:1fr .9fr;gap:65px;align-items:center
+}
+.kicker{text-transform:uppercase;letter-spacing:.25em;font-size:.72rem;color:var(--gold2);margin-bottom:18px}
+h1{font-size:clamp(3rem,7vw,6.4rem);line-height:.94;font-weight:500;letter-spacing:-.04em}
+h1 span{color:var(--gold2)}
+.hero p{max-width:620px;color:var(--muted);font-size:1.08rem;margin:27px 0 30px}
+.buttons{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:47px;padding:0 21px;border:1px solid var(--gold);
+  border-radius:999px;font-family:Arial,sans-serif;font-size:.86rem;transition:.25s
+}
+.btn.primary{background:var(--gold);color:#17130f;font-weight:bold}
+.btn:hover{transform:translateY(-2px)}
+.hero-art{
+  aspect-ratio:4/5;max-width:500px;margin:auto;width:100%;
+  position:relative;overflow:hidden;border:1px solid var(--line);
+  border-radius:24px;box-shadow:0 20px 60px #0008;
+  background:linear-gradient(145deg,#193b38,#aa763d 52%,#2a1b13);
+}
+.hero-art:before{
+  content:"";position:absolute;inset:9%;border:2px solid #dfbd78aa;
+  border-radius:47% 53% 45% 55%;transform:rotate(-5deg)
+}
+.hero-art:after{
+  content:"FEATURED ART";position:absolute;top:22px;left:22px;
+  padding:6px 10px;border:1px solid var(--gold);background:#17130fcc;
+  color:var(--gold2);font:10px Arial,sans-serif;letter-spacing:.15em
+}
+.moon{
+  position:absolute;width:110px;height:110px;border-radius:50%;
+  background:#e0bd72;right:16%;top:17%;box-shadow:0 0 45px #e0bd7266
+}
+.tree{
+  position:absolute;width:8px;height:58%;left:28%;bottom:10%;
+  background:#16150f;border-radius:10px;transform:rotate(9deg)
+}
+.tree:before,.tree:after{
+  content:"";position:absolute;background:#1b2822;border-radius:50%;
+}
+.tree:before{width:180px;height:105px;left:-85px;top:-55px}
+.tree:after{width:150px;height:95px;left:-25px;top:-85px}
+
+/* GENERAL */
+section{padding:95px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px}
+.section-head h2{font-size:clamp(2rem,4vw,3.4rem);font-weight:500;line-height:1.1}
+.section-head p{max-width:510px;color:var(--muted)}
+
+/* CATEGORIES */
+.tags{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:28px}
+.tag{padding:7px 13px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.76rem}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+.card{
+  grid-column:span 4;min-height:330px;position:relative;overflow:hidden;
+  border:1px solid var(--line);background:var(--card);cursor:pointer
+}
+.card:nth-child(1),.card:nth-child(6){grid-column:span 6}
+.card img{
+  width:100%;height:100%;min-height:330px;object-fit:cover;
+  transition:.55s;filter:saturate(.88) contrast(1.05)
+}
+.card:hover img{transform:scale(1.05)}
+.card-info{
+  position:absolute;bottom:0;left:0;right:0;padding:55px 20px 18px;
+  background:linear-gradient(transparent,#000e)
+}
+.card-info small{color:var(--gold2);font:10px Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.card-info h3{font-size:1.35rem;font-weight:500}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center}
+.artist-mark{
+  min-height:340px;display:grid;place-items:center;text-align:center;
+  border:1px solid var(--line);background:var(--soft);position:relative
+}
+.artist-mark:before,.artist-mark:after{
+  content:"";position:absolute;border:1px solid var(--line);inset:20px;transform:rotate(3deg)
+}
+.artist-mark:after{inset:35px;transform:rotate(-3deg)}
+.artist-mark strong{font-size:6rem;color:var(--gold);z-index:1}
+.artist-mark p{position:absolute;bottom:45px;color:var(--muted);font:11px Arial,sans-serif;letter-spacing:.18em}
+.about-text p{color:var(--muted);margin:15px 0}
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:25px}
+.skill{padding:13px;border-left:2px solid var(--gold);background:#ffffff05;font-size:.87rem}
+
+/* VIDEOS */
+.video-box{
+  display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;
+  border:1px solid var(--line);background:var(--soft);padding:24px
+}
+.video-art{
+  aspect-ratio:16/9;display:grid;place-items:center;
+  background:radial-gradient(circle,#c79a5230,transparent 38%),#0e0d0b;
+  border:1px solid var(--line)
+}
+.play{
+  width:68px;height:68px;border:1px solid var(--gold);border-radius:50%;
+  display:grid;place-items:center;color:var(--gold2);font-size:1.4rem
+}
+.video-copy p{color:var(--muted);margin:14px 0 22px}
+
+/* CONTACT */
+.contact{
+  text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:80px 20px;background:linear-gradient(90deg,transparent,#c79a520c,transparent)
+}
+.contact p{max-width:620px;margin:14px auto 25px;color:var(--muted)}
+.socials{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
+.social{padding:10px 17px;border:1px solid var(--line);border-radius:999px;color:var(--gold2);font:13px Arial,sans-serif}
+.social:hover{border-color:var(--gold);background:#c79a5212}
+
+footer{padding:32px 0;color:#8e806b;font:12px Arial,sans-serif}
+.footer{display:flex;justify-content:space-between;gap:20px}
+
+/* LIGHTBOX */
+.lightbox{
+  display:none;position:fixed;inset:0;z-index:100;
+  background:#000e;align-items:center;justify-content:center;padding:20px
+}
+.lightbox.open{display:flex}
+.lightbox img{width:auto;max-width:94vw;max-height:90vh;object-fit:contain;border:1px solid var(--gold)}
+.close{
+  position:absolute;right:20px;top:10px;background:none;border:0;
+  color:white;font-size:40px;cursor:pointer
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  color: #222;
+/* MOBILE */
+@media(max-width:850px){
+  .menu{display:block}
+  .nav-links{
+    display:none;position:absolute;top:70px;left:4%;right:4%;
+    flex-direction:column;padding:18px;background:#1c1712;border:1px solid var(--line)
+  }
+  .nav-links.show{display:flex}
+  .hero{grid-template-columns:1fr;gap:45px;padding:70px 0}
+  .hero-art{max-width:550px}
+  .section-head{display:block}
+  .section-head p{margin-top:12px}
+  .card,.card:nth-child(1),.card:nth-child(6){grid-column:span 6}
+  .about,.video-box{grid-template-columns:1fr}
 }
-
-header {
-  background: #111;
-  color: white;
-  text-align: center;
-  padding: 45px 15px;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 32px;
-}
-
-header p {
-  font-size: 17px;
-  margin-top: 10px;
-}
-
-nav {
-  background: white;
-  text-align: center;
-  padding: 15px;
-  box-shadow: 0 2px 8px #ccc;
-}
-
-nav a {
-  text-decoration: none;
-  color: #222;
-  margin: 0 12px;
-  font-weight: bold;
-}
-
-section {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 25px;
-  background: white;
-  border-radius: 12px;
-}
-
-h2 {
-  text-align: center;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
-}
-
-.card {
-  background: #eee;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.card img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-footer {
-  background: #111;
-  color: white;
-  text-align: center;
-  padding: 25px;
-  margin-top: 40px;
+@media(max-width:560px){
+  section{padding:65px 0}
+  h1{font-size:3.2rem}
+  .card,.card:nth-child(1),.card:nth-child(6){grid-column:span 12}
+  .skills{grid-template-columns:1fr}
+  .footer{flex-direction:column;text-align:center}
+  .buttons .btn{width:100%}
 }
 </style>
 </head>
@@ -92,66 +215,230 @@ footer {
 <body>
 
 <header>
-  <h1>SK EMRAN HOSSAIN</h1>
-  <p>আমার ব্যক্তিগত ও সৃজনশীল ওয়েবসাইট</p>
+  <nav class="container nav">
+    <a class="brand" href="#home">SK EMRAN HOSSAIN</a>
+    <button class="menu" id="menu" aria-label="Open menu">☰</button>
+    <ul class="nav-links" id="links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
-<nav>
-  <a href="#home">হোম</a>
-  <a href="#about">আমার সম্পর্কে</a>
-  <a href="#gallery">গ্যালারি</a>
-  <a href="#contact">যোগাযোগ</a>
-</nav>
+<main>
 
-<section id="home">
-  <h2>স্বাগতম</h2>
-  <p>
-    আমার ওয়েবসাইটে আপনাকে স্বাগতম।
-    এখানে আমার ছবি, সৃজনশীল কাজ, ডিজিটাল আর্ট
-    এবং বিভিন্ন আপডেট প্রকাশ করা হবে।
-  </p>
+<!-- HERO -->
+<section class="container hero" id="home">
+  <div>
+    <div class="kicker">Digital Art • Decorative Art • Bangladesh</div>
+    <h1>Texture<br><span>& Decorative</span><br>Art</h1>
+    <p>
+      A personal gallery of texture-rich digital illustrations, decorative compositions,
+      folk-inspired scenes and visual experiments by <strong>SK EMRAN HOSSAIN</strong>.
+    </p>
+    <div class="buttons">
+      <a class="btn primary" href="#gallery">Explore Artwork</a>
+      <a class="btn" href="#contact">Connect With Me</a>
+    </div>
+  </div>
+
+  <!-- This is a CSS artwork placeholder. Later replace it with your own featured artwork. -->
+  <div class="hero-art" aria-label="Featured artwork">
+    <div class="moon"></div>
+    <div class="tree"></div>
+  </div>
 </section>
 
-<section id="about">
-  <h2>আমার সম্পর্কে</h2>
-  <p>
-    আমি SK Emran Hossain। প্রযুক্তি, ছবি,
-    ডিজিটাল কনটেন্ট এবং নতুন কিছু শেখার প্রতি
-    আমার আগ্রহ রয়েছে।
-  </p>
-</section>
+<!-- GALLERY -->
+<section class="container" id="gallery">
+  <div class="section-head">
+    <div>
+      <div class="kicker">Selected Works</div>
+      <h2>Art Gallery</h2>
+    </div>
+    <p>
+      Texture-based digital illustrations with canvas-like grain, bold outlines,
+      limited colors and folk-inspired decorative moods.
+    </p>
+  </div>
 
-<section id="gallery">
-  <h2>আমার গ্যালারি</h2>
+  <div class="tags">
+    <span class="tag">Nature & Village</span>
+    <span class="tag">Moonlight & Night</span>
+    <span class="tag">Folk Characters</span>
+    <span class="tag">Birds & Animals</span>
+    <span class="tag">Village Life</span>
+    <span class="tag">Decorative Abstract</span>
+  </div>
 
   <div class="gallery">
 
-    <div class="card">
-      <h3>ছবি ১</h3>
-      <p>এখানে আমার ছবি থাকবে</p>
-    </div>
+    <!-- Replace each SVG below with your real artwork later if desired. -->
+    <article class="card" data-title="Quiet Village">
+      <img alt="Quiet Village artwork" loading="lazy"
+           src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 650'%3E%3Crect width='900' height='650' fill='%23334b42'/%3E%3Ccircle cx='690' cy='150' r='90' fill='%23d7b66b'/%3E%3Cpath d='M0 450 Q180 300 360 430 T720 390 T900 430 V650 H0Z' fill='%23926a3c'/%3E%3Cpath d='M100 500 L230 380 L360 500Z M180 500 V440 H280 V500Z' fill='%23412c20'/%3E%3Cpath d='M560 510 Q620 430 690 510 L730 580 H520Z' fill='%231b2924'/%3E%3Cpath d='M0 585 Q240 540 450 590 T900 575 V650 H0Z' fill='%23b68a4c'/%3E%3C/svg%3E">
+      <div class="card-info"><small>Nature & Village</small><h3>Quiet Village</h3></div>
+    </article>
 
-    <div class="card">
-      <h3>ছবি ২</h3>
-      <p>এখানে আমার ডিজিটাল আর্ট থাকবে</p>
-    </div>
+    <article class="card" data-title="Moonlit Evening">
+      <img alt="Moonlit Evening artwork" loading="lazy"
+           src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 650 650'%3E%3Crect width='650' height='650' fill='%231c3040'/%3E%3Ccircle cx='455' cy='150' r='90' fill='%23e0c77e'/%3E%3Cpath d='M0 470 Q170 330 300 450 T650 390 V650 H0Z' fill='%234b6655'/%3E%3Cpath d='M330 650 V280' stroke='%23171916' stroke-width='18'/%3E%3Cpath d='M330 350 Q180 250 80 350 M340 390 Q470 260 600 340' stroke='%23171916' stroke-width='45' fill='none' stroke-linecap='round'/%3E%3Cpath d='M0 570 Q200 530 650 565 V650 H0Z' fill='%238b633e'/%3E%3C/svg%3E">
+      <div class="card-info"><small>Moonlight & Night</small><h3>Moonlit Evening</h3></div>
+    </article>
 
-    <div class="card">
-      <h3>ছবি ৩</h3>
-      <p>নতুন সৃজনশীল কাজ</p>
-    </div>
+    <article class="card" data-title="Folk Rhythm">
+      <img alt="Folk Rhythm artwork" loading="lazy"
+           src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 650 650'%3E%3Crect width='650' height='650' fill='%23a56d3c'/%3E%3Ccircle cx='325' cy='325' r='220' fill='%23dfbf76'/%3E%3Ccircle cx='325' cy='325' r='150' fill='%23344e45'/%3E%3Cpath d='M325 150 L365 275 L500 285 L395 365 L425 500 L325 420 L225 500 L255 365 L150 285 L285 275Z' fill='%23a56d3c'/%3E%3Ccircle cx='325' cy='325' r='45' fill='%23251b15'/%3E%3C/svg%3E">
+      <div class="card-info"><small>Decorative Art</small><h3>Folk Rhythm</h3></div>
+    </article>
+
+    <article class="card" data-title="Wings of Bengal">
+      <img alt="Wings of Bengal artwork" loading="lazy"
+           src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 650 650'%3E%3Crect width='650' height='650' fill='%23e0cda9'/%3E%3Cpath d='M120 380 Q180 170 325 300 Q470 170 530 380 Q400 320 325 470 Q250 320 120 380Z' fill='%234b6756'/%3E%3Ccircle cx='280' cy='310' r='13' fill='%23201712'/%3E%3Cpath d='M300 335 L220 390 L305 375Z' fill='%23a66f3c'/%3E%3Cpath d='M350 335 L430 390 L345 375Z' fill='%23a66f3c'/%3E%3C/svg%3E">
+      <div class="card-info"><small>Birds & Animals</small><h3>Wings of Bengal</h3></div>
+    </article>
+
+    <article class="card" data-title="Story of the River">
+      <img alt="Story of the River artwork" loading="lazy"
+           src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 650 650'%3E%3Crect width='650' height='650' fill='%233a4e47'/%3E%3Cpath d='M0 0 H650 V260 Q480 330 325 260 T0 260Z' fill='%23c69a57'/%3E%3Cpath d='M0 430 Q180 350 325 440 T650 420 V650 H0Z' fill='%23b77f45'/%3E%3Cpath d='M200 440 Q325 350 450 440 Q325 475 200 440Z' fill='%23221a15'/%3E%3Cpath d='M325 355 V470' stroke='%23e0c17a' stroke-width='7'/%3E%3Ccircle cx='325' cy='190' r='65' fill='%23ead18c'/%3E%3C/svg%3E">
+      <div class="card-info"><small>Folk Characters</small><h3>Story of the River</h3></div>
+    </article>
+
+    <article class="card" data-title="Earth & Texture">
+      <img alt="Earth and Texture artwork" loading="lazy"
+           src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 650'%3E%3Crect width='900' height='650' fill='%23231c16'/%3E%3Ccircle cx='250' cy='330' r='190' fill='%23a96f3e'/%3E%3Ccircle cx='610' cy='320' r='210' fill='%23445e4e'/%3E%3Cpath d='M130 300 Q250 150 380 300 T620 300 T820 290' fill='none' stroke='%23dfbd72' stroke-width='35'/%3E%3Cpath d='M90 500 Q300 390 500 510 T830 480' fill='none' stroke='%23c49a58' stroke-width='28'/%3E%3C/svg%3E">
+      <div class="card-info"><small>Decorative Abstract</small><h3>Earth & Texture</h3></div>
+    </article>
 
   </div>
 </section>
 
-<section id="contact">
-  <h2>যোগাযোগ</h2>
-  <p>Facebook, Instagram এবং অন্যান্য সামাজিক মাধ্যমে আমাকে অনুসরণ করতে পারেন।</p>
+<!-- ABOUT -->
+<section class="container" id="about">
+  <div class="about">
+    <div class="artist-mark">
+      <strong>SK</strong>
+      <p>Texture • Line • Story</p>
+    </div>
+
+    <div class="about-text">
+      <div class="kicker">About The Artist</div>
+      <h2>Turning simple scenes into visual stories.</h2>
+      <p>
+        Welcome to the personal art space of <strong>SK EMRAN HOSSAIN</strong>.
+        This website is dedicated to texture-based digital illustrations and decorative artwork.
+      </p>
+      <p>
+        The collection explores nature, village life, people, animals, night scenes and
+        imaginative compositions using grainy canvas textures, bold outlines, restrained
+        colors and folk-inspired visual language.
+      </p>
+
+      <div class="skills">
+        <div class="skill">Texture-based Illustration</div>
+        <div class="skill">Decorative Art</div>
+        <div class="skill">Folk-inspired Visuals</div>
+        <div class="skill">Digital Composition</div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- VIDEOS -->
+<section class="container" id="videos">
+  <div class="section-head">
+    <div>
+      <div class="kicker">Watch</div>
+      <h2>My Videos</h2>
+    </div>
+    <p>Artwork showcases, creative projects and future video content.</p>
+  </div>
+
+  <div class="video-box">
+    <div class="video-art"><div class="play">▶</div></div>
+    <div class="video-copy">
+      <div class="kicker">YouTube Channel</div>
+      <h2>SK EMRAN HOSSAIN</h2>
+      <p>
+        Follow the channel for creative artwork, visual projects and other content.
+      </p>
+      <!-- Replace # with your real YouTube channel URL -->
+      <a class="btn primary" href="#" target="_blank" rel="noopener">Visit YouTube</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="kicker">Stay Connected</div>
+    <h2>Let's Explore Art Together</h2>
+    <p>
+      New illustrations and decorative artworks can be added to this gallery over time.
+      Follow the social pages for new work.
+    </p>
+
+    <div class="socials">
+      <!-- Replace # with your real social links -->
+      <a class="social" href="#" target="_blank" rel="noopener">Facebook</a>
+      <a class="social" href="#" target="_blank" rel="noopener">Facebook Page</a>
+      <a class="social" href="#" target="_blank" rel="noopener">Instagram</a>
+      <a class="social" href="#" target="_blank" rel="noopener">YouTube</a>
+    </div>
+
+    <p>
+      <a href="mailto:emrankh852@gmail.com" style="color:var(--gold2)">emrankh852@gmail.com</a>
+    </p>
+  </div>
+</section>
+
+</main>
+
 <footer>
-  © 2026 SK Emran Hossain
+  <div class="container footer">
+    <div>© <span id="year"></span> SK EMRAN HOSSAIN</div>
+    <div>Texture • Illustration • Decorative Art</div>
+  </div>
 </footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="close" id="close" aria-label="Close">×</button>
+  <img id="lightboxImg" src="" alt="Artwork enlarged">
+</div>
+
+<script>
+const menu=document.getElementById("menu");
+const links=document.getElementById("links");
+menu.addEventListener("click",()=>links.classList.toggle("show"));
+document.querySelectorAll(".nav-links a").forEach(a=>{
+  a.addEventListener("click",()=>links.classList.remove("show"));
+});
+
+const box=document.getElementById("lightbox");
+const boxImg=document.getElementById("lightboxImg");
+document.querySelectorAll(".card").forEach(card=>{
+  card.addEventListener("click",()=>{
+    const img=card.querySelector("img");
+    boxImg.src=img.src;
+    boxImg.alt=img.alt;
+    box.classList.add("open");
+    box.setAttribute("aria-hidden","false");
+  });
+});
+function closeBox(){
+  box.classList.remove("open");
+  box.setAttribute("aria-hidden","true");
+  boxImg.src="";
+}
+document.getElementById("close").addEventListener("click",closeBox);
+box.addEventListener("click",e=>{if(e.target===box)closeBox()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeBox()});
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
 
 </body>
 </html>
