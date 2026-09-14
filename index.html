@@ -209,6 +209,8 @@ footer{padding:32px 0;color:#8e806b;font:12px Arial,sans-serif}
   .footer{flex-direction:column;text-align:center}
   .buttons .btn{width:100%}
 }
+
+.card img{width:100%;height:100%;object-fit:cover;display:block;}
 </style>
 </head>
 
@@ -245,10 +247,8 @@ footer{padding:32px 0;color:#8e806b;font:12px Arial,sans-serif}
     </div>
   </div>
 
-  <!-- This is a CSS artwork placeholder. Later replace it with your own featured artwork. -->
   <div class="hero-art" aria-label="Featured artwork">
-    <div class="moon"></div>
-    <div class="tree"></div>
+    <img src="moonlit-nest.jpg" alt="Moonlit Nest — featured digital artwork" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block;">
   </div>
 </section>
 
@@ -276,41 +276,24 @@ footer{padding:32px 0;color:#8e806b;font:12px Arial,sans-serif}
 
   <div class="gallery">
 
-    <!-- Replace each SVG below with your real artwork later if desired. -->
-    <article class="card" data-title="Quiet Village">
-      <img alt="Quiet Village artwork" loading="lazy"
-           src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 650'%3E%3Crect width='900' height='650' fill='%23334b42'/%3E%3Ccircle cx='690' cy='150' r='90' fill='%23d7b66b'/%3E%3Cpath d='M0 450 Q180 300 360 430 T720 390 T900 430 V650 H0Z' fill='%23926a3c'/%3E%3Cpath d='M100 500 L230 380 L360 500Z M180 500 V440 H280 V500Z' fill='%23412c20'/%3E%3Cpath d='M560 510 Q620 430 690 510 L730 580 H520Z' fill='%231b2924'/%3E%3Cpath d='M0 585 Q240 540 450 590 T900 575 V650 H0Z' fill='%23b68a4c'/%3E%3C/svg%3E">
-      <div class="card-info"><small>Nature & Village</small><h3>Quiet Village</h3></div>
+    <article class="card" data-title="Moonlit Nest">
+      <img alt="Moonlit Nest artwork" loading="lazy" src="moonlit-nest.jpg">
+      <div class="card-info"><small>Birds & Nature</small><h3>Moonlit Nest</h3></div>
     </article>
 
-    <article class="card" data-title="Moonlit Evening">
-      <img alt="Moonlit Evening artwork" loading="lazy"
-           src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 650 650'%3E%3Crect width='650' height='650' fill='%231c3040'/%3E%3Ccircle cx='455' cy='150' r='90' fill='%23e0c77e'/%3E%3Cpath d='M0 470 Q170 330 300 450 T650 390 V650 H0Z' fill='%234b6655'/%3E%3Cpath d='M330 650 V280' stroke='%23171916' stroke-width='18'/%3E%3Cpath d='M330 350 Q180 250 80 350 M340 390 Q470 260 600 340' stroke='%23171916' stroke-width='45' fill='none' stroke-linecap='round'/%3E%3Cpath d='M0 570 Q200 530 650 565 V650 H0Z' fill='%238b633e'/%3E%3C/svg%3E">
-      <div class="card-info"><small>Moonlight & Night</small><h3>Moonlit Evening</h3></div>
+    <article class="card" data-title="Village Path at Sunset">
+      <img alt="Village Path at Sunset artwork" loading="lazy" src="village-path-sunset.jpg">
+      <div class="card-info"><small>Village Life</small><h3>Village Path at Sunset</h3></div>
     </article>
 
-    <article class="card" data-title="Folk Rhythm">
-      <img alt="Folk Rhythm artwork" loading="lazy"
-           src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 650 650'%3E%3Crect width='650' height='650' fill='%23a56d3c'/%3E%3Ccircle cx='325' cy='325' r='220' fill='%23dfbf76'/%3E%3Ccircle cx='325' cy='325' r='150' fill='%23344e45'/%3E%3Cpath d='M325 150 L365 275 L500 285 L395 365 L425 500 L325 420 L225 500 L255 365 L150 285 L285 275Z' fill='%23a56d3c'/%3E%3Ccircle cx='325' cy='325' r='45' fill='%23251b15'/%3E%3C/svg%3E">
-      <div class="card-info"><small>Decorative Art</small><h3>Folk Rhythm</h3></div>
+    <article class="card" data-title="Riverside Evening">
+      <img alt="Riverside Evening artwork" loading="lazy" src="riverside-evening.jpg">
+      <div class="card-info"><small>Moonlight & Night</small><h3>Riverside Evening</h3></div>
     </article>
 
-    <article class="card" data-title="Wings of Bengal">
-      <img alt="Wings of Bengal artwork" loading="lazy"
-           src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 650 650'%3E%3Crect width='650' height='650' fill='%23e0cda9'/%3E%3Cpath d='M120 380 Q180 170 325 300 Q470 170 530 380 Q400 320 325 470 Q250 320 120 380Z' fill='%234b6756'/%3E%3Ccircle cx='280' cy='310' r='13' fill='%23201712'/%3E%3Cpath d='M300 335 L220 390 L305 375Z' fill='%23a66f3c'/%3E%3Cpath d='M350 335 L430 390 L345 375Z' fill='%23a66f3c'/%3E%3C/svg%3E">
-      <div class="card-info"><small>Birds & Animals</small><h3>Wings of Bengal</h3></div>
-    </article>
-
-    <article class="card" data-title="Story of the River">
-      <img alt="Story of the River artwork" loading="lazy"
-           src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 650 650'%3E%3Crect width='650' height='650' fill='%233a4e47'/%3E%3Cpath d='M0 0 H650 V260 Q480 330 325 260 T0 260Z' fill='%23c69a57'/%3E%3Cpath d='M0 430 Q180 350 325 440 T650 420 V650 H0Z' fill='%23b77f45'/%3E%3Cpath d='M200 440 Q325 350 450 440 Q325 475 200 440Z' fill='%23221a15'/%3E%3Cpath d='M325 355 V470' stroke='%23e0c17a' stroke-width='7'/%3E%3Ccircle cx='325' cy='190' r='65' fill='%23ead18c'/%3E%3C/svg%3E">
-      <div class="card-info"><small>Folk Characters</small><h3>Story of the River</h3></div>
-    </article>
-
-    <article class="card" data-title="Earth & Texture">
-      <img alt="Earth and Texture artwork" loading="lazy"
-           src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 650'%3E%3Crect width='900' height='650' fill='%23231c16'/%3E%3Ccircle cx='250' cy='330' r='190' fill='%23a96f3e'/%3E%3Ccircle cx='610' cy='320' r='210' fill='%23445e4e'/%3E%3Cpath d='M130 300 Q250 150 380 300 T620 300 T820 290' fill='none' stroke='%23dfbd72' stroke-width='35'/%3E%3Cpath d='M90 500 Q300 390 500 510 T830 480' fill='none' stroke='%23c49a58' stroke-width='28'/%3E%3C/svg%3E">
-      <div class="card-info"><small>Decorative Abstract</small><h3>Earth & Texture</h3></div>
+    <article class="card" data-title="Family by the River">
+      <img alt="Family by the River artwork" loading="lazy" src="family-by-river.jpg">
+      <div class="card-info"><small>Village Life</small><h3>Family by the River</h3></div>
     </article>
 
   </div>
@@ -319,9 +302,8 @@ footer{padding:32px 0;color:#8e806b;font:12px Arial,sans-serif}
 <!-- ABOUT -->
 <section class="container" id="about">
   <div class="about">
-    <div class="artist-mark">
-      <strong>SK</strong>
-      <p>Texture • Line • Story</p>
+    <div class="artist-mark" style="overflow:hidden;">
+      <img src="profile.jpg" alt="SK EMRAN HOSSAIN profile photo" style="width:100%;height:100%;object-fit:cover;display:block;">
     </div>
 
     <div class="about-text">
@@ -365,8 +347,7 @@ footer{padding:32px 0;color:#8e806b;font:12px Arial,sans-serif}
       <p>
         Follow the channel for creative artwork, visual projects and other content.
       </p>
-      <!-- Replace # with your real YouTube channel URL -->
-      <a class="btn primary" href="#" target="_blank" rel="noopener">Visit YouTube</a>
+      <a class="btn primary" href="https://www.youtube.com/@skemranhossain4511" target="_blank" rel="noopener">Visit YouTube</a>
     </div>
   </div>
 </section>
@@ -382,11 +363,10 @@ footer{padding:32px 0;color:#8e806b;font:12px Arial,sans-serif}
     </p>
 
     <div class="socials">
-      <!-- Replace # with your real social links -->
-      <a class="social" href="#" target="_blank" rel="noopener">Facebook</a>
-      <a class="social" href="#" target="_blank" rel="noopener">Facebook Page</a>
-      <a class="social" href="#" target="_blank" rel="noopener">Instagram</a>
-      <a class="social" href="#" target="_blank" rel="noopener">YouTube</a>
+      <a class="social" href="https://www.facebook.com/profile.php?id=61593831789181" target="_blank" rel="noopener">Facebook</a>
+      <a class="social" href="https://www.facebook.com/smemran786" target="_blank" rel="noopener">Facebook Page</a>
+      <a class="social" href="https://www.instagram.com/smemran786" target="_blank" rel="noopener">Instagram</a>
+      <a class="social" href="https://www.youtube.com/@skemranhossain4511" target="_blank" rel="noopener">YouTube</a>
     </div>
 
     <p>
